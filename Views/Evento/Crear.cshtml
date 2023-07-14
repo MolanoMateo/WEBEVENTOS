@@ -1,0 +1,175 @@
+﻿@model WEBEVENTOS.Models.Evento
+@{
+    ViewData["Title"] = "Crear Evento";
+}
+@section estilos{
+    <style>
+        .signup_v4 .social-area {
+            text-align: center;
+            padding-top: 14px
+        }
+
+            .signup_v4 .social-area .title {
+                font-size: 20px;
+                text-transform: uppercase;
+                font-weight: 600;
+                display: inline-block;
+                color: #007bff;
+                position: relative
+            }
+
+            .signup_v4 .social-area .text {
+                font-size: 17px;
+                font-weight: 400;
+                color: #143250
+            }
+
+            .signup_v4 .social-area .title::before {
+                position: absolute;
+                content: '';
+                width: 40px;
+                height: 1px;
+                background: rgba(0, 0, 0, .2);
+                top: 50%;
+                -webkit-transform: translateY(-50%);
+                -ms-transform: translateY(-50%);
+                transform: translateY(-50%);
+                left: 100%;
+                margin-left: 7px
+            }
+
+            .signup_v4 .social-area .title::after {
+                position: absolute;
+                content: '';
+                width: 40px;
+                height: 1px;
+                background: rgba(0, 0, 0, .2);
+                top: 50%;
+                -webkit-transform: translateY(-50%);
+                -ms-transform: translateY(-50%);
+                transform: translateY(-50%);
+                right: 100%;
+                margin-right: 7px
+            }
+
+        .signup_v4 ul.social-links {
+            padding: 0;
+            margin: 0
+        }
+
+        .signup_v4 .social-area .social-links li {
+            display: inline-block
+        }
+
+            .signup_v4 .social-area .social-links li a i {
+                width: 50px;
+                height: 50px;
+                border-radius: 50%;
+                line-height: 50px;
+                display: inline-block;
+                color: #fff;
+                margin: 0 5px;
+                -webkit-box-shadow: 0 5px 10px rgb(0 0 0 / 15%);
+                box-shadow: 0 5px 10px rgb(0 0 0 / 15%)
+            }
+
+                .signup_v4 .social-area .social-links li a i.fa-facebook-f {
+                    background: #0069f7
+                }
+
+                .signup_v4 .social-area .social-links li a i.fa-google-plus-g {
+                    background: #d1062c
+                }
+
+        .signup_v4 .nav-tabs .nav-link.active {
+            background: #007bff
+        }
+
+        .signup_v4 .nav-tabs .nav-link {
+            background: #143250
+        }
+
+        .signup_v4 .nav-tabs .nav-link {
+            border: 0;
+            margin: 0;
+            padding: 10px 0;
+            text-align: center;
+            border-radius: 0;
+            color: #fff
+        }
+
+        .signup_v4 .nav-tabs li.nav-item {
+            width: 50%
+        }
+
+        .signup_v4 .card-body {
+            padding: 0px
+        }
+
+            .signup_v4 .card-body .tab-content {
+                padding: 0 1.25rem 1.75em
+            }
+    </style>
+}
+
+
+<h1>Nuevo Evento</h1>
+
+<h4>Ingresa la información del Evento</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-controller="Evento" asp-action="save" method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="titulo" class="control-label"></label>
+                <input asp-for="titulo" class="form-control" />
+                <span asp-validation-for="titulo" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="descripcion" class="control-label"></label>
+                <input asp-for="descripcion" class="form-control" />
+                <span asp-validation-for="descripcion" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="costo" class="control-label"></label>
+                <input asp-for="costo" class="form-control" />
+                <span asp-validation-for="costo" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="fecha" class="control-label"></label>
+                <input asp-for="fecha" type="date" class="form-control" />
+                <span asp-validation-for="fecha" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ubicacion" class="control-label"></label>
+                <input asp-for="ubicacion" class="form-control" />
+                <span asp-validation-for="ubicacion" class="text-danger"></span>
+            </div>
+            
+            <div class="form-group">
+                <label for="exampleInputPassword1"> </label>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Crear" class="btn btn-outline-success" />
+            </div>
+        </form>
+    </div>
+    <div class="form-group">
+        <label for="exampleInputPassword1"> </label>
+    </div>
+</div>
+
+<div>
+    <button type="button" class="btn btn-dark">
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-return-left" viewBox="0 0 16 16">
+            <path fill-rule="evenodd" d="M14.5 1.5a.5.5 0 0 1 .5.5v4.8a2.5 2.5 0 0 1-2.5 2.5H2.707l3.347 3.346a.5.5 0 0 1-.708.708l-4.2-4.2a.5.5 0 0 1 0-.708l4-4a.5.5 0 1 1 .708.708L2.707 8.3H12.5A1.5 1.5 0 0 0 14 6.8V2a.5.5 0 0 1 .5-.5z" />
+        </svg>
+        <a asp-action="Index">Volver</a>
+    </button>
+    
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
